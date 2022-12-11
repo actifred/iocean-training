@@ -1,0 +1,5 @@
+<input #searchField type="text" placeholder="Filtrer les utilisateurs" name="recherche"
+    (input)="onFilterUsers(searchField.value)">
+<div class="flex-grid">
+    <app-profile-card *ngFor="let user of users" [user]="user"></app-profile-card>
+</div>

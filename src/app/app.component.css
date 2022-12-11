@@ -1,0 +1,20 @@
+nav a {
+    padding: 4px 14px;
+    margin: 2px 6px;
+    border: solid 1px #777777;
+    text-decoration: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(81, 152, 154);
+    color: #dddddd;
+    cursor: pointer;
+}
+
+nav a:hover {
+    background-color: rgb(59, 141, 144);
+    color: white;
+}
+
+nav {
+    display: block;
+    margin: 20px;
+}
