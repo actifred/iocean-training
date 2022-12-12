@@ -1,7 +1,9 @@
 <h2>Gestion des utilisateurs</h2>
 <nav>
-    <a [routerLink]="['/']">Cartes</a>
-    <a [routerLink]="['/list']">Liste</a>
+    <a [routerLink]="['/']">Accueil</a>
+    <a [routerLink]="['/users']">Cartes</a>
+    <a [routerLink]="['/users/list']">Liste</a>
+    <a [routerLink]="['/calculette']">Calculette</a>
 </nav>
 
 <router-outlet (activate)="onActivateRoute($event)" (deactivate)="onDeactivateRoute($event)"></router-outlet>

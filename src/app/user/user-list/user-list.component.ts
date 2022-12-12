@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Person } from '../models/person';
-import { UserService } from '../user.service';
+import { Person } from '../../models/person';
+import { UserService } from '../../user.service';
 
 @Component({
   selector: 'app-user-list',

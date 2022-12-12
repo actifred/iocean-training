@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { mergeMap, Subject, Subscription, switchMap, takeUntil, tap } from 'rxjs';
-import { Person } from '../models/person';
-import { UserService } from '../user.service';
+import { Person } from '../../models/person';
+import { UserService } from '../../user.service';
 
 @Component({
   selector: 'app-user-details',

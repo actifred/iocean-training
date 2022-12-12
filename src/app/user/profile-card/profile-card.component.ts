@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Person } from '../models/person';
+import { Person } from '../../models/person';
 
 @Component({
   selector: 'app-profile-card',
