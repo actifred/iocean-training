@@ -1,0 +1,8 @@
+<h1>Calcul des mensualités d'un prêt</h1>
+
+<input type="text" class="text" name="capital" placeholder="Capital emprunté" (input)="capitalChanged($event)">
+<input type="text" class="text" name="taux" placeholder="taux" (input)="tauxChanged($event)">
+<input type="text" class="text" name="duree" placeholder="durée en mois" (input)="dureeChanged($event)">
+
+<h3>Résultat de la mensualité</h3>
+<p>Vous payerez {{ mensualite$ | async }}€ par mois</p>
