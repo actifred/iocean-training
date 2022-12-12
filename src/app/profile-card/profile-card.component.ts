@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Person } from '../models/person';
 
 @Component({
@@ -10,8 +10,12 @@ export class ProfileCardComponent {
   @Input()
   public user!: Person;
 
+  @Output()
+  public goToUser = new EventEmitter<string>();
+
   public onClick() {
     console.log('NAVIGUER VERS USER ', this.user.id);
+    this.goToUser.emit(this.user.id);
   }
 
 }

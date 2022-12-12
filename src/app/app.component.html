@@ -1,3 +1,7 @@
 <h2>Gestion des utilisateurs</h2>
+<nav>
+    <a [routerLink]="['/']">Cartes</a>
+    <a [routerLink]="['/list']">Liste</a>
+</nav>
 
-<app-user-list></app-user-list>
+<router-outlet (activate)="onActivateRoute($event)" (deactivate)="onDeactivateRoute($event)"></router-outlet>

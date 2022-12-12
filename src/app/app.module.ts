@@ -8,6 +8,9 @@ import { UserListComponent } from './user-list/user-list.component';
 import { CalculetteComponent } from './calculette/calculette.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './user.service';
+import { AppRoutingModule } from './app-routing.module';
+import { UserSimpleListComponent } from './user-simple-list/user-simple-list.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 @NgModule({
   declarations: [
@@ -16,10 +19,13 @@ import { UserService } from './user.service';
     ProfileCardComponent,
     FullNamePipe,
     CalculetteComponent,
+    UserSimpleListComponent,
+    UserDetailsComponent,
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [ ],
   bootstrap: [AppComponent]

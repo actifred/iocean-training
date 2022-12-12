@@ -2,5 +2,5 @@
     (input)="onFilterUsers(searchField.value)"><br/>
 <img *ngIf="loading$ | async" src="/assets/loading.gif">
 <div class="flex-grid">
-    <app-profile-card *ngFor="let user of users" [user]="user"></app-profile-card>
+    <app-profile-card (goToUser)="onGoToUser($event)" *ngFor="let user of users" [user]="user"></app-profile-card>
 </div>

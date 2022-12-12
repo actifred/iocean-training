@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Person } from '../models/person';
 import { UserService } from '../user.service';
 
@@ -14,7 +15,7 @@ export class UserListComponent implements AfterViewInit {
 
   public loading$ = this._userService.isLoading$;
 
-  constructor(private _userService: UserService) {  
+  constructor(private _userService: UserService, private _router: Router) {  
     this._userService.getUsers().subscribe({
       next: ul => {
         this.users = ul;
@@ -27,6 +28,10 @@ export class UserListComponent implements AfterViewInit {
 
   public onFilterUsers(recherche: string) {
     console.log(recherche);
+  }
+
+  public onGoToUser(userId: string) {
+    this._router.navigate(['users', userId])
   }
 
 }
