@@ -1,11 +1,14 @@
 import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
+import { PreloadAllModules, PreloadingStrategy, Route, RouterModule, Routes } from "@angular/router";
+import { Observable, of } from "rxjs";
 import { CalculetteComponent } from "./calculette/calculette.component";
 import { SplashComponent } from "./splash/splash.component";
-import { UserDetailsComponent } from "./user/user-details/user-details.component";
-import { UserListComponent } from "./user/user-list/user-list.component";
-import { UserSimpleListComponent } from "./user/user-simple-list/user-simple-list.component";
-import { UserComponent } from "./user/user/user.component";
+
+class CustomPreload implements PreloadingStrategy {
+    preload(route: Route, fn: () => Observable<any>): Observable<any> {
+        return route.data?.['preload'] ? fn() : of(null)
+    }
+}
 
 const routes: Routes = [
     {
@@ -15,6 +18,7 @@ const routes: Routes = [
     {
         path: 'users',
         loadChildren: () => import('./user/user.module').then(m => m.UserModule),
+        data: { preload: false }
     },
     {
         path: '',
@@ -25,8 +29,9 @@ const routes: Routes = [
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(routes, { enableTracing: true })
+        RouterModule.forRoot(routes, { preloadingStrategy: CustomPreload })
     ],
+    providers: [ CustomPreload ],
     exports: [
         RouterModule
     ]
