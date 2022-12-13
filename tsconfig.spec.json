@@ -6,7 +6,7 @@
     "types": [
       "jasmine"
     ],
-    "target": "es5"
+    "target": "es2020"
   },
   "files": [
     "src/test.ts",
