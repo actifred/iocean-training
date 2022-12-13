@@ -24,16 +24,26 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
     private _userService: UserService,
     private _router: Router
   ) {
-    this._activatedRoute.params.pipe(
-      takeUntil(this._unsubscribe$),
-      tap(p => this.userId = p['id']),
-      switchMap(p => 
-        this._userService.getUserById(this.userId)),
-      tap(u => this.user = u),
-      mergeMap(u => this._userService.getNextUserId(u.id))
-    ).subscribe(nextUser => {
-        this.nextUserId = nextUser
-      });
+    this._activatedRoute.data.subscribe(data => {
+      this.user = data['user'];
+      this.userId = this.user.id;
+      this._userService.getNextUserId(this.userId)
+        .pipe(takeUntil(this._unsubscribe$))
+        .subscribe(nextUser => {
+          this.nextUserId = nextUser
+      })
+    });
+
+//    this._activatedRoute.params.pipe(
+//      takeUntil(this._unsubscribe$),
+//      tap(p => this.userId = p['id']),
+//      switchMap(p => 
+//        this._userService.getUserById(this.userId)),
+//      tap(u => this.user = u),
+    //   mergeMap(u => this._userService.getNextUserId(u.id))
+    // ).subscribe(nextUser => {
+    //     this.nextUserId = nextUser
+ //     });
     
   }
 
