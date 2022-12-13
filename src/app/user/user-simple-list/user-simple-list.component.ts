@@ -15,13 +15,14 @@ export class UserSimpleListComponent implements OnInit {
   public loading$ = this._userService.isLoading$;
 
   constructor(private _userService: UserService) {  
+    
+  }
+  ngOnInit(): void {
     this._userService.getUsers().subscribe({
       next: ul => {
         this.users = ul;
       }
     });
-  }
-  ngOnInit(): void {
   }
 
 }
