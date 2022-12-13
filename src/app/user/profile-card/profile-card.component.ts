@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Person } from '../../models/person';
 
 @Component({
   selector: 'app-profile-card',
   templateUrl: './profile-card.component.html',
-  styleUrls: ['./profile-card.component.css']
+  styleUrls: ['./profile-card.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProfileCardComponent {
   @Input()

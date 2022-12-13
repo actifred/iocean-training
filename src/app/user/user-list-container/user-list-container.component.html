@@ -1,0 +1,6 @@
+<app-user-list 
+    [users]="(users$ | async)!" 
+    [loading]="(loading$ | async)!"
+    (cardClicked)="onGoToUser($event)"
+    (filterChanged)="onFilterUsers($event)">
+</app-user-list>

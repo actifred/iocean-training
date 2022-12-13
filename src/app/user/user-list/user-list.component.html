@@ -1,6 +1,6 @@
 <input #searchField type="text" placeholder="Filtrer les utilisateurs" name="recherche"
     (input)="onFilterUsers(searchField.value)"><br/>
-<img *ngIf="loading$ | async" src="/assets/loading.gif">
+<img *ngIf="loading" src="/assets/loading.gif">
 <div class="flex-grid">
-    <app-profile-card (goToUser)="onGoToUser($event)" *ngFor="let user of users" [user]="user"></app-profile-card>
+    <app-profile-card (goToUser)="onClick($event)" *ngFor="let user of users" [user]="user"></app-profile-card>
 </div>

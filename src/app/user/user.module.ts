@@ -8,6 +8,7 @@ import { UserSimpleListComponent } from './user-simple-list/user-simple-list.com
 import { UserComponent } from './user/user.component';
 import { ProfileCardComponent } from './profile-card/profile-card.component';
 import { FullNamePipe } from './pipes/full-name.pipe';
+import { UserListContainerComponent } from './user-list-container/user-list-container.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FullNamePipe } from './pipes/full-name.pipe';
     UserDetailsComponent,
     FullNamePipe,
     UserComponent,
-    ProfileCardComponent
+    ProfileCardComponent,
+    UserListContainerComponent
   ],
   imports: [
     CommonModule,
