@@ -1,6 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { mergeMap, Subject, Subscription, switchMap, takeUntil, tap } from 'rxjs';
+import { COUNTRIES } from 'src/app/app.module';
 import { Person } from '../../models/person';
 import { UserService } from '../../user.service';
 
@@ -22,10 +23,14 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _userService: UserService,
-    private _router: Router
+    private _router: Router,
+    @Inject(COUNTRIES) public countryList: { [key:string] : string}
   ) {
     this._activatedRoute.data.subscribe(data => {
-      this.user = data['user'];
+      this.user = {
+        ...data['user'],
+        born: this.countryList[data['user'].born]
+      };
       this.userId = this.user.id;
       this._userService.getNextUserId(this.userId)
         .pipe(takeUntil(this._unsubscribe$))

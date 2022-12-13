@@ -1,4 +1,4 @@
-export const countryList = {
+export const countryList : { [key:string]: string } = {
     "AF": "Afghanistan",
     "AL": "Albania",
     "DZ": "Algeria",

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { InjectionToken, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -6,6 +6,9 @@ import { CalculetteComponent } from './calculette/calculette.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { SplashComponent } from './splash/splash.component';
+import { countryList } from './resources/countries';
+
+export const COUNTRIES = new InjectionToken<string>('CountryList');
 
 @NgModule({
   declarations: [
@@ -18,7 +21,9 @@ import { SplashComponent } from './splash/splash.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [ ],
+  providers: [
+    { provide: COUNTRIES, useValue: countryList}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
